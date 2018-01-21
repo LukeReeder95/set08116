@@ -27,14 +27,14 @@ bool load_content() {
 	  vec3(1.0f, -1.0f, -1.0f), vec3(1.0, 1.0f, -1.0f), vec3(1.0f, 1.0f, 1.0f),
 	  vec3(1.0f, -1.0f, -1.0f), vec3(1.0f, 1.0f, 1.0f), vec3(1.0f, -1.0f, 1.0f),
       // Left
-
-
+	  vec3(-1.0f, -1.0f, -1.0f), vec3(-1.0, 1.0f, -1.0f), vec3(-1.0f, 1.0f, 1.0f),
+	  vec3(-1.0f, -1.0f, -1.0f), vec3(-1.0f, 1.0f, 1.0f), vec3(-1.0f, -1.0f, 1.0f),
       // Top
-
-
+	  vec3(1.0f, 1.0f, 1.0f), vec3(-1.0, 1.0f, -1.0f), vec3(-1.0f, 1.0f, 1.0f),
+	  vec3(-1.0f, 1.0f, -1.0f), vec3(1.0f, 1.0f, 1.0f), vec3(1.0f, 1.0f, -1.0f),
       // Bottom
-
-
+	  vec3(1.0f, -1.0f, 1.0f), vec3(-1.0, -1.0f, -1.0f), vec3(-1.0f, -1.0f, 1.0f),
+	  vec3(-1.0f, -1.0f, -1.0f), vec3(1.0f, -1.0f, 1.0f), vec3(1.0f, -1.0f, -1.0f)
       // *********************************
   };
   // Colours
@@ -100,6 +100,7 @@ void main() {
   application.set_load_content(load_content);
   application.set_update(update);
   application.set_render(render);
+  glDisable(GL_DEPTH_TEST);
   // Run application
   application.run();
 }
