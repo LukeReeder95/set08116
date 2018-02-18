@@ -20,7 +20,7 @@ bool load_content() {
 	  // *********************************
 	  // Add the position data for triangles here, (6 verts per side)
 	  // Front
-	  vec3(1.0f, 1.0f, 1.0f), vec3(-1.0, 1.0f, 1.0f), vec3(1.0f, -1.0f, 1.0f),
+	  vec3(1.0f, 1.0f, 1.0f), vec3(-1.0, 1.0f, 1.0f), vec3(1.0f, -1.0f, 1.0f), //0,1,2
 	  vec3(1.0f, -1.0f, 1.0f), vec3(-1.0f, 1.0f, 1.0f), vec3(-1.0f, -1.0f, 1.0f),
 	  // Back
 	  vec3(1.0f, 1.0f, -1.0f), vec3(-1.0, 1.0f, -1.0f), vec3(1.0f, -1.0f, -1.0f),
