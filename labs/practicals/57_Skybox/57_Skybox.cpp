@@ -18,9 +18,9 @@ bool load_content() {
   sphere = mesh(geometry_builder::create_sphere(25, 25));
   // *********************************
   // Create box geometry for skybox
-
+  skybox = mesh(geometry_builder::create_box(1, 1, 1));
   // Scale box by 100
-
+  skybox.get_transform.scale = 100;
   // Load the cubemap
 
 
@@ -38,7 +38,7 @@ bool load_content() {
 
 
   // Build effect
-
+  eff.build();
   // *********************************
 
   // Set camera properties
@@ -54,7 +54,7 @@ bool update(float delta_time) {
   cam.update(delta_time);
   // *********************************
   // Set skybox position to camera position (camera in centre of skybox)
-
+  skybox.get_transform().position = cam.get_position();
   // *********************************
   return true;
 }
@@ -62,9 +62,9 @@ bool update(float delta_time) {
 bool render() {
   // *********************************
   // Disable depth test,depth mask,face culling
-
-
-
+	glDisable(GL_DEPTH_TEST);
+	glDepthMask(GL_FALSE);
+	glDisable(GL_CULL_FACE);
   // Bind skybox effect
 
   // Calculate MVP for the skybox
@@ -78,11 +78,11 @@ bool render() {
 
 
   // Render skybox
-
+	renderer::render(skybox);
   // Enable depth test,depth mask,face culling
-
-
-
+	glEnable(GL_DEPTH_TEST);
+	glDepthMask(GL_TRUE);
+	glEnable(GL_CULL_FACE);
   // *********************************
 
   // Bind effect
